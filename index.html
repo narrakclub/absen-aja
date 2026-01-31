@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,.2);
+      width: 80%;
+      max-width: 300px;
+    }
+    .popup button {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Insert your username!</h3>
+  <input type="text" id="username" placeholder="username">
+  <br><br>
+  <button onclick="submitName()">Submit</button>
+
+  <div class="popup" id="popup">
+    <p id="popupMessage"></p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+
+  <script>
+    const users = {
+      narrak: "narrakclub adalah club persatuan yuri yaoi",
+      sonya: "old woman yuriii >_<",
+      faisal: "ical yaoi sejati"
+    };
+
+    function submitName() {
+      const name = document.getElementById("username").value.toLowerCase();
+      const popup = document.getElementById("popup");
+      const message = document.getElementById("popupMessage");
+
+      message.textContent = users[name] || "Maaf, username tidak terdaftar.";
+      popup.style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
